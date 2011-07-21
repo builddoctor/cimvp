@@ -9,5 +9,5 @@ task :project do
 end
 
 task :spec do
-  sh "bundle exec spec spec"
+  sh "bundle exec rspec spec"
 end
