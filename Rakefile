@@ -13,15 +13,18 @@ task :project do
   sh "bundle exec jenkins create . --host localhost --port 3001"
 end
 
+desc "Run the tests"
 task :spec => "ci:setup:rspec" do
   sh "bundle exec rspec spec"
 end
 
+desc "Stop the server"
 task :stop do 
   sh "bundle exec jenkins server -k"
 end
 
-task :destroy do 
+desc "Destroy the working dir"
+task :destroy => :stop do 
   rm_rf jenkins_dir
 end
 
