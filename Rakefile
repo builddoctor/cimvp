@@ -1,3 +1,6 @@
+require 'rubygems'
+require 'ci/reporter/rake/rspec'
+
 jenkins_dir="#{ENV['HOME']}/.jenkins/server"
 
 desc "Start the Jenkins server"
@@ -10,7 +13,7 @@ task :project do
   sh "bundle exec jenkins create . --host localhost --port 3001"
 end
 
-task :spec do
+task :spec => "ci:setup:rspec" do
   sh "bundle exec rspec spec"
 end
 
