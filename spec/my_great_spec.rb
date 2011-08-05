@@ -7,7 +7,7 @@ describe "my great code" do
   end
 
   it "should not be in Orwell's 1984" do
-    (2 + 2).should == 4
+    (2 + 2).should == 5
   end
 
   it "should know what zombies say" do 
